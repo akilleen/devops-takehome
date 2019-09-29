@@ -3,20 +3,6 @@ import subprocess
 import shlex
 import json
 
-parser = argparse.ArgumentParser()
-parser.add_argument(
-    '--registry-url',
-    help='URL of Docker Repo',
-    required=True
-)
-parser.add_argument(
-    '--repository-name',
-    help='Name of repo',
-    required=True
-)
-
-args = parser.parse_args()
-
 def build_container(repo_name, tag):
     print(f"Building {repo_name} with tag {tag}...")
     p = subprocess.Popen(
@@ -98,6 +84,19 @@ def check_return_code(code):
         exit(1)
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '--registry-url',
+        help='URL of Docker Repo',
+        required=True
+    )
+    parser.add_argument(
+        '--repository-name',
+        help='Name of repo',
+        required=True
+    )
+    args = parser.parse_args()
+
     new_tag = get_latest_tag(args.repository_name) + 1
     build_container(args.repository_name, new_tag)
     tag_container(args.registry_url, args.repository_name, new_tag)

@@ -3,14 +3,6 @@ import argparse
 import subprocess
 from os import listdir
 
-parser = argparse.ArgumentParser()
-parser.add_argument(
-    '--num-replicas',
-    help='Number of app replicas',
-    required=True
-)
-args = parser.parse_args()
-
 def deploy_to_k8s(num_replicas):
     config_files = listdir('k8s')
     for config_file in config_files:
@@ -35,4 +27,12 @@ def kubectl_deploy(deployment):
     print(p.stdout)
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '--num-replicas',
+        help='Number of app replicas',
+        required=True
+    )
+    args = parser.parse_args()
+
     deploy_to_k8s(args.num_replicas)
