@@ -11,11 +11,13 @@
 ### Instructions
 python build.py --registry-url \<ECR Registry URL\> --repository-name \<Repo name\>
 
-Example: python build.py \\
 
-  --registry-url 123456789012.dkr.ecr.us-east-1.amazonaws.com \\
-
+ Example:
+ ``` 
+ python build.py \
+  --registry-url 123456789012.dkr.ecr.us-east-1.amazonaws.com \
   --repository-name devops-takehome
+  ```
 
 ## Deploy
 
@@ -27,10 +29,13 @@ Example: python build.py \\
 - Kubernetes cluster with CoreDNS
 
 ### Instructions
-Configure the "image" in the k8s/app-deployment.yaml to use the Repo and tag.
+Configure the "image" field in k8s/app-deployment.yaml to use the Repo and tag.
 
-Ensure credentials in k8s/app-deployment.yaml in DATABASE_URL env match config in postgres-configmap.yaml
+Ensure credentials in k8s/app-deployment.yaml in DATABASE_URL env match config in k8s/postgres-configmap.yaml
 
 python deploy.py --num_replicas \<number of replicas\>
 
-Example: python deploy.py --num_replicas 2
+Example: 
+```
+python deploy.py --num_replicas 2
+```
