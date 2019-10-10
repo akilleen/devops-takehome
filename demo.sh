@@ -9,11 +9,6 @@ sanity_check () {
     fi
 }
 
-cleanup () {
-    rm -rf devops-takehome
-    aws ecr delete-repository --repository-name devops-takehome
-}
-
 sanity_check git
 sanity_check aws
 sanity_check python
