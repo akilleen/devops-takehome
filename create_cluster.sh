@@ -29,6 +29,7 @@ bin/eksctl create cluster \
 --nodes-min 1 \
 --nodes-max 1 \
 --node-ami auto \
+--zones=us-east-1a,us-east-1b \
  || error_exit
 
 echo "Testing k8s connectivity..."

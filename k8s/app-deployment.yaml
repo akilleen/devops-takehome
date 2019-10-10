@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: devops-takehome
-          image: 337546869648.dkr.ecr.us-east-1.amazonaws.com/devops-takehome:1
+          image: 337546869648.dkr.ecr.us-east-1.amazonaws.com/devops-takehome:$tag
           imagePullPolicy: "Always"
           ports:
             - containerPort: 80
