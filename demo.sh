@@ -15,9 +15,9 @@ sanity_check python
 sanity_check kubectl
 sanity_check docker
 
-#echo "Running cluster setup..."
-#./create_cluster.sh
-#
+echo "Running cluster setup..."
+./create_cluster.sh
+
 echo "Cloning git repo"
 git clone https://github.com/gaingroundspeed/devops-takehome.git
 
